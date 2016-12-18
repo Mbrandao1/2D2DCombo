@@ -36,8 +36,10 @@ import com.sun.j3d.utils.universe.SimpleUniverse;
 import blkGUIone.GUI2;
 import javafx.scene.transform.TransformChangedEvent;
 
-public final class energon2 extends JPanel implements MouseBehaviorCallback {
+public final class energon2 extends JPanel {
     int s = 0, count = 0;
+    
+    public static String file = "src/temp.txt";
 
     public energon2() {
 
@@ -90,10 +92,10 @@ public final class energon2 extends JPanel implements MouseBehaviorCallback {
         Appearance ap = new Appearance();
         
         // The name of the text file to read the x,y points from
-        String fileName = "src/temp.txt";
+        String fileName = file;
         
         ///Initialize ArrayList of x,y points
-    	ArrayList<Float> newnumlist = new ArrayList();
+    	ArrayList<Float> newnumlist = new ArrayList<Float>();
 
         // This will reference one line at a time
         String line = null;
@@ -152,9 +154,9 @@ public final class energon2 extends JPanel implements MouseBehaviorCallback {
             		//initialize a general shape variable
             		Node arc = null;
             		if (shape.equals("arc ")) {
-            			arc = new Cylinder((float) ((newnumlist.get(2))/Math.pow(10, 1.5)),z, ap);
+            			arc = new Cylinder( (float) ((newnumlist.get(2))/Math.pow(10, 1.5)),z, ap);
             		} else if (shape.equals("rect")) {
-            			arc = new Box((float) ((newnumlist.get(2))/Math.pow(10, 1.5)),z, (float) ((newnumlist.get(3))/Math.pow(10, 1.5)), ap);
+            			arc = new Box((float) ((newnumlist.get(2))/Math.pow(10, 1.5)),z/2, (float) ((newnumlist.get(3))/Math.pow(10, 1.5)), ap);
             		} else if (shape.equals("cone")) {
             			arc = new Cone((float) ((newnumlist.get(2))/Math.pow(10, 1.5)),z, ap);
             		} else if (shape.equals("sphe")) {
@@ -166,7 +168,7 @@ public final class energon2 extends JPanel implements MouseBehaviorCallback {
             		temptrans.rotX(Math.PI / 2);
             		//read location from textfile array
             		if (shape.equals("rect")) {
-            			temptrans.setTranslation(new Vector3f((float) (newnumlist.get(0)/Math.pow(10, 1.5)), (float) ((float) newnumlist.get(1)/Math.pow(10, 1.5)), z));
+            			temptrans.setTranslation(new Vector3f((float) (newnumlist.get(0)/Math.pow(10, 1.5)), (float) ((float) newnumlist.get(1)/Math.pow(10, 1.5)), z/2));
             		} else if (shape.equals("sphe")) {
             			temptrans.setTranslation(new Vector3f((float) (newnumlist.get(0)/Math.pow(10, 1.5)), (float) (newnumlist.get(1)/Math.pow(10, 1.5)), (float) ((float) newnumlist.get(2)/Math.pow(10, 1.5))));
             		} else {
@@ -235,7 +237,6 @@ public final class energon2 extends JPanel implements MouseBehaviorCallback {
     	MouseRotate mrl=new MouseRotate();
         mrl.setSchedulingBounds(new BoundingSphere());
         mrl.setTransformGroup(lines);
-        mrl.setupCallback(this);
         lineGroup.addChild(mrl);
         ///Initialize and setup mouse zooming
         ///Note: use alt-click & dragging to zoom in/out
@@ -319,16 +320,6 @@ public final class energon2 extends JPanel implements MouseBehaviorCallback {
     }
 
     public static void main(String[] args) {
-    	//new energon2();
-        //JFrame frame = new JFrame();
         GUI2.birdyf.add(new JScrollPane(new energon2()));
-        //frame.setSize(300, 300);
-        //GUI2.birdyf.setVisible(true);
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-	@Override
-	public void transformChanged(int arg0, Transform3D arg1) {
-		///method called as soon as mouse is clicked and dragged
-		///may be used for later iteration
-}
 }

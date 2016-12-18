@@ -77,8 +77,5 @@
 	<classpathentry kind="lib" path="jogl-test-android.jar"/>
 	<classpathentry kind="lib" path="jogl-test.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/Backup of 3djavaapi updated/j3dcore.jar"/>
-	<classpathentry kind="lib" path="/Backup of 3djavaapi updated/j3dutils.jar"/>
-	<classpathentry kind="lib" path="/Backup of 3djavaapi updated/vecmath.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

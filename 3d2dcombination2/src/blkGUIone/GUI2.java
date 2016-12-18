@@ -27,15 +27,17 @@ public class GUI2 extends JFrame {
 		String a = null;
 		
 		System.out.println("out");
-		setVisible(true);
+		//setVisible(true);
 
 		// JPanel
 
 		if (mainGUI.getLbcj()==TEMPLE_TYPE.ASIA_MINOR) {
+			main.energon2.file = "src/asiaminor.txt";
 			JPanel panel = new temple1();
 			jtp.add("2d", panel);
 			a=TEMPLE_TYPE.ASIA_MINOR.name;
 		} else if (mainGUI.getLbcj()==TEMPLE_TYPE.HERCULER) {
+			main.energon2.file = "src/herculer.txt";
 			JPanel panel = new templeofherculer();
 			jtp.add("2d", panel);
 			a=TEMPLE_TYPE.HERCULER.name;

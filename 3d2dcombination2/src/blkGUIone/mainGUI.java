@@ -60,7 +60,7 @@ public class mainGUI extends JFrame {
 		jtp.addTab("Temples", a);
 		jtp.addTab("Compare", compare);
 		//jtp.addTab("User input", new JPanel());
-		jtp.addChangeListener(new MyChangeListener());
+		//jtp.addChangeListener(new MyChangeListener());
 		
 		
 		
